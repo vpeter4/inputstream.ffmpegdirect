@@ -2287,6 +2287,10 @@ AVDictionary* FFmpegStream::GetFFMpegOptionsFromInput()
   if (url.GetProtocol().empty() || url.IsProtocol("file"))
     av_dict_set(&options, "protocol_whitelist", "file,http,https,tcp,tls,crypto", 0);
 
+  // Disable strict HLS file extension check
+  if (kodi::addon::GetSettingBoolean("disableStrictHLSfileExtensionCheck"))
+    av_dict_set(&options, "extension_picky", "0", 0);
+
   if (url.IsProtocol("http") || url.IsProtocol("https"))
   {
     std::map<std::string, std::string> protocolOptions;

@@ -140,6 +140,11 @@
           <default>false</default>
           <control type="toggle" />
         </setting>
+        <setting id="disableStrictHLSfileExtensionCheck" type="boolean" label="30047" help="30646">
+          <level>2</level>
+          <default>false</default>
+          <control type="toggle" />
+        </setting>
       </group>
     </category>
   </section>
